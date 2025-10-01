@@ -1,0 +1,94 @@
+.container {
+  max-width: 600px;/*Ширина чата*/
+  height: 800px;
+  margin: 0 auto;
+  padding: 10px;
+/*  font-family: Arial, sans-serif;*/
+/*  display: flex; *//* Используем flexbox */
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  justify-content: flex-end;*/
+  background-color: #DCF8C6;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.container_messages {
+  max-width: 500px;/*Ширина чата*/
+  height: 700px;
+  margin: 0 auto;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  display: flex; /* Используем flexbox */
+  flex-direction: column; /* Сообщения сверху вниз */
+  overflow-y: auto; /* Добавляем прокрутку, если сообщений много */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: red;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/*Общий стиль для сообщений*/
+.message {
+  margin: 5px 0;
+  padding: 10px 15px;
+  border-radius:15px;
+  max-width: 70%; /*Ограничение ширины для переноса текста*/
+  word-wrap: dreak-word; /*Переносить слова если длинные*/
+  white-space: normal; /*Перенос строк*/
+  line-height: 1;
+  background: #FFFFFF;
+  color: #000000;
+}
+
+/*Мне сообщение*/
+.left {
+  align-self: flex-start;
+  text-align: left;
+}
+/*Мое сообщение*/
+.right {
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;/*Отодвинуть в право*/
+}
+
+/*Ввод сообщения*/
+.Pole{
+  flex: 2;
+  min-width: 90%;
+  padding: 10px 20px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid #cfcfcf;
+  background: #f2f2f2;
+  box-sizing: border-box;
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow .15s, border-color .15s;
+  margin-right: 10px;    /*Небольшой отступ между полем и иконкой*/
+}
+
+/*Фокус поля сообщения*/
+.Pole:focus {
+  border-color: #2196F3; /* Цвет границы при фокусе */
+  background-color: #f2f2f2; /* Цвет фона при фокусе */
+  outline: none;
+}
+
+/*Кнопка отправки иконка*/
+.btn-send {
+  width: 100%;
+  height: 30px;
+  vertical-align: middle;
+  transition: transform 0.3s ease, color 1s ease;
+  transform: translateY(5%);
+  transform: translateX(10%);
+  cursor: pointer; /* Добавляем курсор "рука" */
+  padding: 0px;          /*Убираем внутренние отступы*/
+  margin-top: 1px;
+}
