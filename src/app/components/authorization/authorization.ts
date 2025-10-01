@@ -12,13 +12,16 @@ import {MyCookieService} from '../../services/my-cookie-service';
   templateUrl: './authorization.html',
   styleUrl: './authorization.css'
 })
+
+
 export class Authorization {
   testData: any;
   username: any;
   password: any;
-  constructor(private authService: AuthorizationService, private myCookieService: MyCookieService) {
 
+  constructor(private authService: AuthorizationService, private myCookieService: MyCookieService) {
   }
+
   login() {
     this.authService.login(this.username, this.password).subscribe({
       next:(data: any)=> {
@@ -32,4 +35,5 @@ export class Authorization {
       }
     })
   }
+
 }
