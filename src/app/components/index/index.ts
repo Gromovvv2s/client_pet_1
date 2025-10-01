@@ -10,13 +10,16 @@ import {IndexService} from '../../services/index-service';
 
 export class Index {
   message: any;
+
+
   constructor(private indexService: IndexService) {
     this.getIndex();
   }
+
   getIndex() {
     this.indexService.getIndex().subscribe({
       next:(data: any)=> {
-        console.error(data);
+        console.log(data);
         alert(1);
         this.message = data;
       },
@@ -27,4 +30,5 @@ export class Index {
       }
     });
   }
+
 }

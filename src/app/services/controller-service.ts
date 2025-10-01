@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ControllerService {
-  baseUrl = "http://localhost:8082"
+  baseUrl = "http://localhost:8082/v1"
 
   getBaseUrl() {
     return this.baseUrl;

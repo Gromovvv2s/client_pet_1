@@ -1,0 +1,21 @@
+<div class="container">
+
+  <div class="container_messages" id="container_messages">
+
+  </div>
+<!--<div class="message left">Привет как дела?</div>-->
+<!--<div class="message right">Ку все оки =)</div>-->
+
+  <form (submit)='sendMessage()'>
+
+    <input type="text" [(ngModel)]="message" name="message" class="message Pole" placeholder="Сообщение"/>
+      <button type="submit">
+        <img class="btn-send" src="/send.svg"/>
+      </button>
+  </form>
+
+</div>
+
+
+
+
