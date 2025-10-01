@@ -11,24 +11,33 @@ import {Message} from '../../services/message';
 })
 
 export class Test implements AfterViewInit {
-  @ViewChild("container_messages", { static: true }) container!: ElementRef;
+  @ViewChild('container_messages', { static: true }) containerMessages!: ElementRef;
   message: any;
-  listMessages = ["1", "2"];
 
   constructor(private messageService: Message, private renderer: Renderer2) {
 
   }
 
   ngAfterViewInit(): void {
+    this.getMessages();
   }
 
-  createMessagesElements() {
-    console.log("container: " + this.container);
+  createMessagesElements(messages:any) {
+    this.containerMessages.nativeElement.innerHTML = '';
+
+    for (const message of messages) {
       const div = this.renderer.createElement('div');
-      const text = this.renderer.createText('New div');
+      const text = this.renderer.createText(message['message']);
       this.renderer.appendChild(div, text);
-      this.renderer.addClass(div, 'right'); // Optional: Add a CSS class
-      this.renderer.appendChild(this.container.nativeElement, div);
+
+      const author = message['author'];
+      if (author == "a") {
+        this.renderer.addClass(div, 'left');
+      } else {
+        this.renderer.addClass(div, 'right');
+      }
+      this.renderer.appendChild(this.containerMessages.nativeElement, div);
+    }
   }
 
 
@@ -37,7 +46,6 @@ export class Test implements AfterViewInit {
     this.messageService.sendMessage(this.message).subscribe({
       next:(data: any)=> {
         console.log(data);
-        this.createMessagesElements();
       },
       error:(data)=> {
         console.error(data);
@@ -48,10 +56,7 @@ export class Test implements AfterViewInit {
   getMessages() {
     this.messageService.getMessages().subscribe({
       next:(data: any)=> {
-        for (const message of data) {
-          console.log(message);
-        }
-
+        this.createMessagesElements(data);
       },
       error:(data)=> {
         console.error(data);
