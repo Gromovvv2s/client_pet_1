@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import {Authorization} from './components/authorization/authorization';
 import {Index} from './components/index';
 import {Test} from './components/test/test';
+import {Profile} from './components/profile/profile';
 
 export const routes: Routes = [
   {
@@ -12,5 +13,8 @@ export const routes: Routes = [
   },
   {
     path: 'test', component: Test
+  },
+  {
+      path: 'profile', component: Profile
   }
 ];

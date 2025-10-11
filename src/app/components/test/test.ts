@@ -11,15 +11,28 @@ import {Message} from '../../services/message';
 })
 
 export class Test implements AfterViewInit {
+
   @ViewChild('container_messages', { static: true }) containerMessages!: ElementRef;
+
   message: any;
 
   constructor(private messageService: Message, private renderer: Renderer2) {
 
   }
-
+  //этот метод отработает, когда html этого компонента сформируется
   ngAfterViewInit(): void {
     this.getMessages();
+  }
+
+  getMessages() {
+    this.messageService.getMessages().subscribe({
+      next:(data: any)=> {
+        this.createMessagesElements(data);
+      },
+      error:(data)=> {
+        console.error(data);
+      }
+    })
   }
 
   createMessagesElements(messages:any) {
@@ -53,15 +66,6 @@ export class Test implements AfterViewInit {
     })
   }
 
-  getMessages() {
-    this.messageService.getMessages().subscribe({
-      next:(data: any)=> {
-        this.createMessagesElements(data);
-      },
-      error:(data)=> {
-        console.error(data);
-      }
-    })
-  }
+
 }
 
