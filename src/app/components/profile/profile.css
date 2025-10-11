@@ -1,0 +1,95 @@
+/* Общие стили */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+* Стили списка друзей */
+.friends-list-container {
+  margin-top: 20px;
+}
+
+.friends-list {
+  list-style: none;
+  padding: 0;
+}
+
+.friend-item {
+  display: flex; /* Выстраиваем имя друга и кнопку в одной строке */
+  justify-content: space-between; /* Размещаем их по краям элемента */
+  align-items: center; /* Выравниваем элементы по вертикали */
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.friend-item:last-child {
+  border-bottom: none;
+}
+
+.friend-item a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.friend-item a:hover {
+  text-decoration: underline;
+}
+
+/* Стили кнопки отправки сообщения */
+.send-message-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.send-message-button:hover {
+  background-color: #218838;
+}
+
+/* Медиа-запросы (адаптивность) */
+@media (max-width: 600px) {
+  .profile-container {
+    width: 95%; /* Занимает больше места на маленьких экранах */
+    margin: 10px auto;
+  }
+
+  .friend-item {
+    flex-direction: column; /* Переносим имя и кнопку на разные строки */
+    align-items: flex-start; /* Выравниваем элементы по левому краю */
+  }
+
+  .send-message-button {
+    margin-top: 5px; /* Отступ для кнопки на мобильных устройствах */
+  }
+}
